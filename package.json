@@ -1,13 +1,14 @@
 {
-  "name": "multi-replicate",
+  "name": "symmetric-protocol-group",
   "version": "1.0.0",
-  "description": "multiplex multiple replicatation streams",
+  "description": "multiplex symmetric protocol duplex streams",
   "main": "index.js",
   "scripts": {
     "test": "tape test/*.js"
   },
   "keywords": [
     "replicate",
+    "protocol",
     "multiplex"
   ],
   "author": "substack",
