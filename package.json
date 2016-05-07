@@ -31,10 +31,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/substack/multi-replicate.git"
+    "url": "git+https://github.com/substack/symmetric-protocol-group.git"
   },
   "bugs": {
-    "url": "https://github.com/substack/multi-replicate/issues"
+    "url": "https://github.com/substack/symmetric-protocol-group/issues"
   },
-  "homepage": "https://github.com/substack/multi-replicate#readme"
+  "homepage": "https://github.com/substack/symmetric-protocol-group#readme"
 }
