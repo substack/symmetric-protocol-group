@@ -26,11 +26,11 @@ populate(function () {
     abc: log2.replicate(),
     xyz: log3.replicate()
   }
-  var a = mreplicate(streams0, function (err) {
+  var a = sym(streams0, function (err) {
     if (err) console.error(err)
     else console.log('ok 0')
   })
-  var b = mreplicate(streams1, function (err) {
+  var b = sym(streams1, function (err) {
     if (err) console.error(err)
     else console.log('ok 1')
   })
