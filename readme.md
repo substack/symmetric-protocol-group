@@ -67,7 +67,7 @@ stream names.
 
 `cb(err)` fires on errors or when all the streams have finished successfully.
 
-## stream.on('close', function (key) {})
+## stream.on('stream-close', function (key) {})
 
 When an individual stream closes, this event fires with the stream `key`.
 

@@ -35,8 +35,8 @@ test('log', function (t) {
       })
       t.deepEqual(bclose.sort(), [ 'abc', 'xyz' ])
     })
-    a.on('close', function (key) { aclose.push(key) })
-    b.on('close', function (key) { bclose.push(key) })
+    a.on('stream-close', function (key) { aclose.push(key) })
+    b.on('stream-close', function (key) { bclose.push(key) })
     a.pipe(b).pipe(a)
   })
 
