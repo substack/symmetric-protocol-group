@@ -5,7 +5,7 @@ var mreplicate = require('../')
 var collect = require('collect-stream')
 
 test('log', function (t) {
-  t.plan(4)
+  t.plan(6)
   var log0 = hyperlog(memdb('/tmp/a.db'))
   var log1 = hyperlog(memdb('/tmp/b.db'))
   var log2 = hyperlog(memdb('/tmp/c.db'))
@@ -20,8 +20,10 @@ test('log', function (t) {
       abc: log2.replicate(),
       xyz: log3.replicate()
     }
+    var aclose = [], bclose = []
     var a = mreplicate(streams0, function (err) {
       t.error(err)
+      t.deepEqual(aclose.sort(), [ 'abc', 'xyz' ])
     })
     var b = mreplicate(streams1, function (err) {
       t.error(err)
@@ -31,7 +33,10 @@ test('log', function (t) {
       collect(log3.createReadStream(), function (err, rows) {
         t.deepEqual(rows.map(valueof), [ 'x', 'y', 'z' ].map(Buffer))
       })
+      t.deepEqual(bclose.sort(), [ 'abc', 'xyz' ])
     })
+    a.on('close', function (key) { aclose.push(key) })
+    b.on('close', function (key) { bclose.push(key) })
     a.pipe(b).pipe(a)
   })
 

@@ -14,6 +14,7 @@ module.exports = function (streams, cb) {
     shared.once('error', cb)
     streams[key].once('error', cb)
     onend(streams[key], function () {
+      plex.emit('close', key)
       if (--pending === 0) cb(null)
     })
     shared.pipe(streams[key]).pipe(shared)
